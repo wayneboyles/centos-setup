@@ -27,9 +27,21 @@ function printHeader() {
 printHeader "Installing Common Packages"
 
 dnf makecache
-dnf install -y vim-enhanced wget curl tree git net-tools powerline-fonts
+dnf install -y vim-enhanced wget curl tree git net-tools
 
 sleep 2
+
+# ===================================================
+# Powerline Fonts
+# ===================================================
+
+printHeader "Installing Powerline Fonts"
+
+git clone https://github.com/powerline/fonts.git --depth=1
+cd fonts
+./install.sh
+cd ..
+rm -rf fonts
 
 # ===================================================
 # Vim-Plug
