@@ -58,3 +58,14 @@ sleep 2
 # ===================================================
 
 printHeader "Installing Custom Vim Settings"
+
+curl -fLo ~/.vimrc https://raw.githubusercontent.com/wayneboyles/centos-setup/master/.vimrc
+vim -E -s -u ~/.vimrc +PlugInstall +qall
+
+sleep 2
+
+# ===================================================
+# Finished
+# ===================================================
+
+printHeader "Installation Finished"
