@@ -16,6 +16,7 @@ NC='\033[0m'
 printf "\n"$LIGHT_GREEN
 figlet "  "$(hostname -s)
 printf $NC
+echo ""
 
 # Gather System Information
 

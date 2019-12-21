@@ -38,8 +38,8 @@ function printOutput() {
 
 printHeader "Installing Common Packages"
 
-dnf makecache
-dnf install -y vim-enhanced wget curl tree git net-tools epel-release figlet
+dnf install -y epel-release
+dnf install -y vim-enhanced wget curl tree git net-tools figlet
 
 printOutput "Finished Installing Common Packages..."
 
