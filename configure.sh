@@ -117,5 +117,5 @@ printOutput "Finished Installing Dynamic MOTD..."
 
 printHeader "Finished!"
 echo ""
-echo -e "${LIGHT_RED}Please log out and back in for all changes to take effect."
+echo -e "${LIGHT_RED}Please log out and back in for all changes to take effect.${NC}"
 echo ""
