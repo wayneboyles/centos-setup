@@ -27,7 +27,28 @@ function printHeader() {
 printHeader "Installing Common Packages"
 
 dnf makecache
-dnf install -y vim-enhanced wget curl tree git net-tools
+dnf install -y vim-enhanced wget curl tree git net-tools epel-release
+
+sleep 2
+
+# ===================================================
+# Ansible
+# ===================================================
+
+printHeader "Installing Ansible"
+
+dnf install -y ansible
+
+sleep 2
+
+# ===================================================
+# Updates
+# ===================================================
+
+printHeader "Installing Updates"
+
+dnf -y update
+dnf clean all
 
 sleep 2
 

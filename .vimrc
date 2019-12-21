@@ -27,7 +27,6 @@ set nu
 set autoindent
 set smartindent
 set lazyredraw
-set laststatus=2
 set visualbell
 set backspace=indent,eol,start
 set incsearch
