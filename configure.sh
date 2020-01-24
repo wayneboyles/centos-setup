@@ -23,7 +23,7 @@ if [ $VERS_MAJOR != "8" ]; then
   printHeader "Invalid CentOS Release"
   printOutput "Currently this script only supports CentOS 8.  You are running CentOS $VERS_MAJOR"
   exit 1
-}
+fi
 
 # ===================================================
 # Colors
