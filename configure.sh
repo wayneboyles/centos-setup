@@ -1,6 +1,31 @@
 #!/bin/bash
 
 # ===================================================
+# Package Manager
+# ===================================================
+
+YUM_CMD=$(which yum)
+DNF_CMD=$(which dnf)
+
+# ===================================================
+# Version
+# Currently only supports CentOS 8.  Additional
+# packages are required to fully support CentOS 7
+# ===================================================
+
+VERS_FULL=`cat /etc/centos-release | tr -dc '0-9.'`
+VERS_MAJOR=$(cat /etc/centos-release | tr -dc '0-9.'|cut -d \. -f1)
+VERS_MINOR=$(cat /etc/centos-release | tr -dc '0-9.'|cut -d \. -f2)
+VERS_ASYNC=$(cat /etc/centos-release | tr -dc '0-9.'|cut -d \. -f3)
+
+if [ $VERS_MAJOR != "8" ]; then
+  clear
+  printHeader "Invalid CentOS Release"
+  printOutput "Currently this script only supports CentOS 8.  You are running CentOS $VERS_MAJOR"
+  exit 1
+}
+
+# ===================================================
 # Colors
 # ===================================================
 
@@ -30,6 +55,14 @@ function printOutput() {
   echo ""
   echo -e "${LIGHT_GREEN}$*${NC}\n"
   sleep 2
+}
+
+function installPackage() {
+  if [[ ! -z $DNF_CMD ]]; then
+    dnf install -y $*
+  elif [[ ! -z $YUM_CMD ]]; then
+    yum install -y $*
+  fi
 }
 
 # ===================================================
