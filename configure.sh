@@ -80,11 +80,11 @@ printOutput "Finished Installing Common Packages..."
 # Ansible
 # ===================================================
 
-printHeader "Installing Ansible"
+#printHeader "Installing Ansible"
 
-dnf install -y ansible
+#dnf install -y ansible
 
-printOutput "Finished Installing Ansible..."
+#printOutput "Finished Installing Ansible..."
 
 # ===================================================
 # Updates
