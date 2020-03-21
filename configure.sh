@@ -65,14 +65,35 @@ function installPackage() {
   fi
 }
 
+function updateAndClean() {
+  if [[ ! -z $DNF_CMD ]]; then
+    dnf -y update
+    dnf clean all
+  elif [[ ! -z $YUM_CMD ]]; then
+    yum -y update
+    yum clean all
+  fi
+}
+
+# ===================================================
+# SELinux
+# ===================================================
+
+printHeader "Modifying SELINUX Mode"
+
+sudo setenforce 0
+sudo sed -i 's/^SELINUX=.*/SELINUX=permissive/g' /etc/selinux/config
+
+printOutput "Finished Modifying SELINUX Mode"
+
 # ===================================================
 # Common Packages
 # ===================================================
 
 printHeader "Installing Common Packages"
 
-dnf install -y epel-release
-dnf install -y vim-enhanced wget curl tree git net-tools figlet
+installPackage epel-release
+installPackage vim-enhanced wget curl tree git net-tools figlet
 
 printOutput "Finished Installing Common Packages..."
 
@@ -82,7 +103,7 @@ printOutput "Finished Installing Common Packages..."
 
 printHeader "Installing Ansible"
 
-dnf install -y ansible
+installPackage ansible
 
 printOutput "Finished Installing Ansible..."
 
@@ -92,8 +113,7 @@ printOutput "Finished Installing Ansible..."
 
 printHeader "Installing Updates"
 
-dnf -y update
-dnf clean all
+updateAndClean()
 
 printOutput "Finished Installing Updates..."
 
