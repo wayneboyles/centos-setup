@@ -101,11 +101,11 @@ printOutput "Finished Installing Common Packages..."
 # Ansible
 # ===================================================
 
-printHeader "Installing Ansible"
+#printHeader "Installing Ansible"
 
-installPackage ansible
+#installPackage ansible
 
-printOutput "Finished Installing Ansible..."
+#printOutput "Finished Installing Ansible..."
 
 # ===================================================
 # Updates
@@ -113,7 +113,7 @@ printOutput "Finished Installing Ansible..."
 
 printHeader "Installing Updates"
 
-updateAndClean()
+updateAndClean
 
 printOutput "Finished Installing Updates..."
 
